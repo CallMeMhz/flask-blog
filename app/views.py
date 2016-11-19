@@ -1,16 +1,15 @@
 from datetime import datetime
 from markdown import markdown
-from . import app, db, lm
+from . import app, db
 from .models import Article, Category
 from .forms import EditArticleFrom
 from config import BLOG_SETTING
 from flask import render_template, redirect, url_for, flash, g, request
-from flask_login import logout_user, logout_user, current_user, login_required
 
 
 @app.before_request
 def before_request():
-    g.admin = current_user
+    g.admin = True
     g.setting = BLOG_SETTING
 
 
