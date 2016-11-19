@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% import "pagination.html" as p %}
+
+{% block content %}
+    <div class="row">
+        <div class="article-list large-8 medium-8 large-offset-2 medium-offset-2 columns">
+            <ul class="no-bullet">
+                {% for article in pagination.items %}
+                    <li class="list-item">
+                        <p class="list-top">
+                            <a class="tag-name blue-link" href="#">{{ article.category.name }}</a>
+                            <em>·</em>
+                            <span class="time">{{ article.created_at.strftime('%Y.%m.%d %H:%M') }}</span>
+                        </p>
+                        <h3 class="title">
+                            <a href="{{ url_for('article', id=article.id) }}">{{ article.title }}</a>
+                        </h3>
+                        <p class="list-footer">
+                            <a href="{{ url_for('article', id=article.id) }}">阅读 14632</a>
+                            &middot;
+                            <span>评论 564</span>
+                            {% if g.admin %}
+                                &middot; <a href="{{ url_for('edit_article', id=article.id) }}">编辑</a>
+                                &middot; <a href="{{ url_for('remove_article', id=article.id) }}">删除</a>
+                            {% endif %}
+                        </p>
+                    </li>
+                {% else %}
+                    <div class="alert callout">对不起，博客暂时没有文章</div>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% if pagination.items %}
+        {{ p.pagination_widget(pagination, '.show_articles') }}
+    {% endif %}
+{% endblock %}

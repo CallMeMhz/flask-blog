@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="{% if not edit_mode %}{{ url_for('add_article') }}{% else %}{{ url_for('edit_article', id=article_id) }}{% endif %}" method="post">
+        {{ form.csrf_token }}
+        <div class="row">
+            <div class="medium-6 large-6 columns">
+                {{ form.title.label }} {{ form.title }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="medium-6 large-6 columns">
+                {{ form.category.label }} {{ form.category }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="medium-10 large-10 columns">
+                {{ form.content.label }} {{ form.content(rows=10) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="medium-10 large-10 columns">
+                <input type="submit" value="{% if edit_mode %}确认修改{% else %}发表{% endif %}">
+            </div>
+        </div>
+    </form>
+{% endblock %}

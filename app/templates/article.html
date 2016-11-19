@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="article">
+        <div class="row">
+            <div class="large-8 large-offset-2 medium-8 medium-offset-2 columns">
+                <h1 class="title">{{ article.title }}</h1>
+                <small class="subheader">
+                    阅读 4122 &nbsp;
+                    评论 96 &nbsp;
+                    发布于 {{ article.created_at.strftime('%Y.%m.%d %H:%M') }} &nbsp;
+                </small>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="large-8 large-offset-2 medium-8 medium-offset-2 columns">
+                {{ article.content|md|safe }}
+            </div>
+        </div>
+        <div class="row text-right">
+            <div class="large-8 large-offset-2 medium-8 medium-offset-2 columns">
+                <h4><small>
+                    {% if article.modified_at %}
+                        最后修改于 {{ article.modified_at.strftime('%Y.%m.%d %H:%M') }}
+                    {% endif %}
+                </small></h4>
+            </div>
+        </div>
+    </div>
+{% endblock %}

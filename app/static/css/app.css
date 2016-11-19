@@ -1,0 +1,87 @@
+body {
+    color: #555
+}
+
+a {
+    color: #555
+}
+
+a:hover {
+    color: #333;
+}
+
+.top-bar {
+    height: 45px;
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.top-bar .top-bar-title {
+    margin-top: 6px;
+}
+
+.top-bar .dropdown {
+    height: 35px;
+}
+
+.top-bar .dropdown, .menu.vertical {
+    background-color: #fff;
+}
+
+a.blue-link {
+    color: #4094c7;
+}
+
+a.blue-link:hover {
+    color: #4074f6;
+}
+
+.br-post {
+    height:1px;
+    border:none;
+    border-top:2px dotted #bbb
+}
+
+.article-list li {
+    border-bottom: 1px dashed #d9d9d9;
+    word-wrap:break-word
+}
+
+.article-list .list-top {
+    margin: 8px 0;
+    font-size: 12px;
+}
+
+.article-list .list-top .time {
+    margin-left: 3px;
+    color: #717171;
+}
+
+.article-list .list-footer {
+    font-family: -apple-system, "Helvetica Neue", Arial, "PingFang SC", "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 20px;
+}
+
+.article-list .list-footer>a, .article-list .list-footer>span {
+    color: #999999;
+}
+
+.article-list .title {
+    margin-top: 0;
+    margin-bottom: 10px;
+    margin-left: 0;
+    display: inherit;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.article .title {
+    word-break: break-all;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+

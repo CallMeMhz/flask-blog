@@ -1,0 +1,56 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+        <title>{{ title }} - Blog</title>
+    {% else %}
+        <title>Blog</title>
+    {% endif %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+</head>
+<body>
+
+<div class="top-bar">
+    <div class="top-bar-title">
+        <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
+            <button class="menu-icon dark" type="button" data-toggle></button>
+        </span>
+        <strong>{{ g.setting.blog_title }}</strong>
+    </div>
+    <div id="responsive-menu">
+        <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+                <li>
+                    <a href="/">目录</a>
+                    <ul class="menu vertical">
+                        <li><a href="#">LeetCode</a></li>
+                        <li><a href="#">Linux</a></li>
+                        <li><a href="#">Python</a></li>
+                    </ul>
+                </li>
+                {% if g.admin %}
+                    <li><a href="{{ url_for('add_article') }}">发表文章</a></li>
+                {% endif %}
+                <li><a href="#">关于我</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% for message in get_flashed_messages() %}
+    <div class="primary callout">{{ message }}</div>
+{% endfor %}
+
+<br>
+{% block content %}{% endblock %}
+
+<script src="{{ url_for('static', filename='js/vendor/jquery.js') }}"></script>
+<script src="{{ url_for('static', filename='js/vendor/what-input.js') }}"></script>
+<script src="{{ url_for('static', filename='js/vendor/foundation.js') }}"></script>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
